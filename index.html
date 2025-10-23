@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Escritório de Advocacia Trabalhista em São Paulo. Especialistas em direitos do trabalhador, rescisões, horas extras, danos morais e muito mais. Atendimento personalizado e resultados comprovados.">
+    <meta name="keywords" content="advogado trabalhista são paulo, advocacia trabalhista sp, direitos trabalhistas, rescisão contratual, horas extras, advogado trabalhista zona sul">
+    <meta name="author" content="Advocacia Trabalhista SP">
+    <title>Advogado Trabalhista São Paulo | Especialistas em Direito do Trabalho</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #c5a572;
+            --accent: #8b7355;
+            --text: #333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d2d44 100%);
+            color: var(--white);
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M50 0L100 50L50 100L0 50z" fill="rgba(197,165,114,0.03)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(197, 165, 114, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(197, 165, 114, 0.4);
+            background: var(--accent);
+        }
+
+        .services {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(197, 165, 114, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: var(--secondary);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .service-card.expanded {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 900px) {
+            .service-card.expanded {
+                grid-column: span 1;
+            }
+        }
+
+        .service-card ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+
+        .service-card li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .why-us {
+            background: linear-gradient(135deg, var(--light) 0%, #e8e9eb 100%);
+            padding: 80px 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(197, 165, 114, 0.3);
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .contact {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        footer {
+            background: #0f0f1e;
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="badge">✓ Advocacia Especializada em Direito do Trabalho</div>
+            <h1>Protegendo Seus Direitos Trabalhistas em São Paulo</h1>
+            <p class="subtitle">Experiência, dedicação e resultados comprovados para garantir a justiça que você merece</p>
+            <a href="https://api.whatsapp.com/send/?phone=5511975596711&text=Ol%C3%A1%2C+gostaria+de+fazer+uma+avalia%C3%A7%C3%A3o+trabalhista+gratuita.&type=phone_number&app_absent=0" class="cta-button" target="_blank" rel="noopener noreferrer">Consulta Gratuita</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas em Direito do Trabalho</p>
+            
+            <div class="services-grid">
+                <div class="service-card expanded">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Ações Trabalhistas</h3>
+                    <p>A propositura de ações trabalhistas é um direito fundamental de todo trabalhador que teve seus direitos violados durante a relação de emprego. Nosso <a href="https://advogadotrabalhistabr.app.br/">Escritório de Advogados Trabalhista</a> atua com experiência consolidada em todas as instâncias da Justiça do Trabalho em São Paulo, oferecendo representação judicial completa desde a análise inicial do caso até a execução da sentença. Desenvolvemos estratégias jurídicas personalizadas para cada situação, considerando as particularidades do caso e buscando sempre a melhor solução para nossos clientes.</p>
+                    <p>Atuamos em ações que envolvem demissões sem justa causa, pedidos de equiparação salarial, reconhecimento de gratificações, pagamento de comissões não quitadas, diferenças salariais, e qualquer outra violação aos direitos previstos na CLT e na Constituição Federal. Nossa equipe realiza um estudo minucioso de cada processo, coletando documentos, testemunhas e provas necessárias para fortalecer a causa do trabalhador. Utilizamos jurisprudência atualizada e conhecimento profundo da legislação trabalhista para maximizar as chances de êxito em cada demanda judicial que patrocinamos.</p>
+                    <p>Oferecemos acompanhamento próximo durante todas as fases processuais, mantendo nossos clientes sempre informados sobre o andamento do processo. Realizamos audiências, elaboramos petições robustas e recorremos quando necessário para garantir que a justiça seja feita. Com anos de experiência atuando nos fóruns trabalhistas de São Paulo, conhecemos os trâmites processuais e temos relacionamento profissional com magistrados e servidores, o que contribui para a eficiência e agilidade na condução dos processos.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">📋</div>
+                    <h3>Rescisão Contratual</h3>
+                    <p>A rescisão do contrato de trabalho é um momento crítico que exige atenção especial para garantir que todos os direitos trabalhistas sejam respeitados. Muitos trabalhadores perdem valores significativos por desconhecer quais verbas rescisórias têm direito a receber. Nosso escritório de <a href="https://advogadotrabalhistabr.app.br/advogado-trabalhista-em-ferraz-de-vasconcelos-sp/">advogado trabalhista em Ferraz de Vasconcelos</a>oferece análise completa e detalhada de rescisões contratuais, realizando cálculos precisos de todas as verbas devidas, incluindo saldo de salário, aviso prévio, férias proporcionais e vencidas com adicional de um terço, décimo terceiro proporcional, multa de 40% sobre o FGTS, e demais direitos previstos em lei ou convenção coletiva da categoria.</p>
+                    <p>Atuamos tanto em casos de demissão sem justa causa, quanto em situações de rescisão indireta, também conhecida como justa causa do empregador, que ocorre quando a empresa comete faltas graves que tornam insustentável a continuidade da relação de emprego. Também auxiliamos em casos de pedido de demissão, orientando sobre as consequências e direitos aplicáveis, e em situações de rescisão por acordo entre as partes, modalidade introduzida pela Reforma Trabalhista que possui regras específicas. Verificamos se houve correta liberação do FGTS e se os prazos para pagamento foram respeitados.</p>
+                    <p>Nossa experiência permite identificar irregularidades que frequentemente passam despercebidas, como ausência de pagamento de horas extras habituais, não integração de comissões na rescisão, falta de pagamento de adicionais como insalubridade e periculosidade, e outras verbas que devem ser consideradas no cálculo rescisório. Oferecemos orientação sobre a melhor estratégia jurídica caso identifiquemos valores não pagos, podendo ingressar com ação judicial para cobrança dos direitos sonegados, sempre buscando a reparação integral do trabalhador e evitando que prejuízos financeiros afetem sua vida após o término do vínculo empregatício.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">⏰</div>
+                    <h3>Horas Extras</h3>
+                    <p>A prestação de horas extras sem o devido pagamento é uma das violações mais frequentes aos direitos trabalhistas no Brasil. Muitos empregadores exigem que seus funcionários trabalhem além da jornada regular de 8 horas diárias e 44 horas semanais sem realizar o pagamento correto dessas horas excedentes, que devem ser remuneradas com adicional mínimo de 50% sobre o valor da hora normal, podendo chegar a 100% em caso de trabalho em domingos e feriados sem a devida compensação. Nosso escritório é especializado na recuperação de horas extras não pagas, realizando cálculos precisos que consideram todo o período trabalhado.</p>
+                    <p>Atuamos também em casos de trabalho sem registro de ponto, situação em que muitas empresas se aproveitam para não pagar as horas extras devidas. Utilizamos todos os meios de prova admitidos pela legislação trabalhista, incluindo depoimento de testemunhas, mensagens de WhatsApp, e-mails corporativos, registros de acesso ao sistema, planilhas de trabalho, e qualquer outro documento que comprove a jornada real de trabalho. Além das horas extras diárias, também buscamos o reconhecimento e pagamento de intervalos intrajornada suprimidos, trabalho em intervalos de descanso, e todas as formas de sobrejornada que geram direito a compensação financeira.</p>
+                    <p>É importante destacar que o não pagamento de horas extras gera reflexos em outras verbas trabalhistas, como férias, décimo terceiro salário, FGTS, aviso prévio e multa de 40% sobre o FGTS. Por isso, nosso trabalho visa não apenas recuperar o valor das horas extras em si, mas também calcular todos os reflexos que essas horas deveriam ter gerado em outras parcelas. Trabalhamos com métodos de cálculo atualizados e utilizamos jurisprudência consolidada para fundamentar nossos pedidos, aumentando significativamente as chances de êxito nas demandas judiciais que envolvem cobrança de horas extras e seus reflexos.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">💰</div>
+                    <h3>FGTS e Multas</h3>
+                    <p>O Fundo de Garantia do Tempo de Serviço é um direito constitucional de todo trabalhador com carteira assinada, correspondendo a 8% do salário mensal que deve ser depositado mensalmente pelo empregador em conta vinculada ao trabalhador. Infelizmente, é comum que empresas deixem de realizar esses depósitos, prejudicando gravemente o trabalhador que conta com esse recurso em momentos importantes como a rescisão do contrato, compra da casa própria ou em situações de doença grave. Nosso escritório atua de forma incisiva na cobrança de FGTS não depositado, realizando levantamento completo de todo o período trabalhado e calculando os valores devidos com correção monetária e juros.</p>
+                    <p>Além dos depósitos mensais do FGTS, atuamos também na cobrança da multa de 40% sobre o saldo total do FGTS, devida em casos de demissão sem justa causa. Essa multa representa um valor significativo e é direito inegociável do trabalhador dispensado injustamente. Verificamos se o empregador realizou o correto recolhimento dessa multa e, em caso negativo, ingressamos com ação judicial para sua cobrança. Também atuamos em casos de multas previstas na CLT por atraso no pagamento de verbas rescisórias, que podem representar o valor equivalente ao salário do trabalhador quando o empregador não efetua o pagamento no prazo legal.</p>
+                    <p>Nossa experiência permite identificar situações em que o FGTS foi depositado sobre base de cálculo incorreta, não incluindo verbas que deveriam integrar o salário de contribuição, como horas extras habituais, comissões, gratificações e adicionais de insalubridade e periculosidade. Nesses casos, além de buscar o depósito dos valores não recolhidos, também calculamos e cobramos as diferenças que deixaram de ser depositadas ao longo do contrato de trabalho. Utilizamos sistemas especializados de cálculo trabalhista para garantir precisão nos valores cobrados, sempre atualizados conforme os índices oficiais da Caixa Econômica Federal.</p>
+                </div>
+                ,br>
+                <p> VEJA TAMBÉM: <a href="https://www.fernandocotuinho.com/">AGÊNCIA DE SEO SÃO PAULO,/a>
+                <br>
+                <div class="service-card expanded">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Danos Morais</h3>
+                    <p>O dano moral trabalhista ocorre quando o empregador, seus prepostos ou colegas de trabalho praticam atos que violam a dignidade, honra, imagem ou integridade psíquica do trabalhador. Situações de assédio moral, assédio sexual, discriminação por raça, gênero, orientação sexual, religião ou idade, exposição a situações vexatórias, xingamentos, humilhações públicas, imposição de metas impossíveis, isolamento proposital e outras condutas abusivas configuram dano moral e geram direito à indenização. Nosso <a href="https://advogadotrabalhistabr.app.br/advogado-trabalhista-na-zona-leste-sp/">Escritório de Advogado Trabalhista</a> atua com sensibilidade e firmeza na defesa de trabalhadores que foram vítimas dessas práticas abusivas, buscando não apenas a reparação financeira mas também a responsabilização dos agressores.</p>
+                    <p>Para comprovar o dano moral, utilizamos diversos meios de prova como testemunhas, gravações, mensagens, laudos médicos e psicológicos que demonstrem o abalo emocional sofrido, atestados de afastamento por problemas de saúde relacionados ao ambiente de trabalho tóxico, e qualquer documento que evidencie a conduta lesiva do empregador. A jurisprudência trabalhista tem reconhecido cada vez mais a importância de coibir práticas abusivas no ambiente de trabalho, estabelecendo indenizações significativas para reparar os danos causados e desestimular a reincidência dessas condutas por parte das empresas.</p>
+                    <p>Além dos casos clássicos de assédio e discriminação, também atuamos em situações específicas como revista íntima abusiva, divulgação indevida de dados pessoais ou médicos do trabalhador, acidente de trabalho causado por negligência do empregador nas condições de segurança, cobrança de despesas que são de responsabilidade da empresa, retenção indevida de documentos como carteira de trabalho e certificados, e qualquer outra conduta que extrapole o poder diretivo do empregador e viole direitos fundamentais do trabalhador. Trabalhamos para que a indenização seja justa e proporcional ao dano sofrido, considerando a gravidade da conduta, o porte econômico da empresa e as consequências que o ato causou na vida pessoal e profissional da vítima.</p>
+                </div>
+                <br>
+                <p> VEJA TAMBÉM: <a href="https://www.advocaciaschettini.com.br">ADVOGADO TRABALHISTA EM EXTREMA-MG</a> 
+                <div class="service-card expanded">
+                    <div class="service-icon">🏥</div>
+                    <h3>Acidente de Trabalho</h3>
+                    <p>Acidentes de trabalho e doenças ocupacionais representam graves violações aos direitos dos trabalhadores e frequentemente resultam de negligência do empregador quanto às normas de segurança e medicina do trabalho. Quando um trabalhador sofre acidente durante o exercício de suas funções ou desenvolve doença relacionada à atividade laboral, tem direito a diversas indenizações além dos benefícios previdenciários. Nosso escritório oferece assessoria jurídica completa em casos de acidente de trabalho, desde a orientação sobre os procedimentos iniciais até a propositura de ação de indenização por danos morais, materiais, estéticos e pensionamento em caso de incapacidade permanente.</p>
+                    <p>Atuamos em casos de acidentes típicos, aqueles que ocorrem no ambiente de trabalho ou no trajeto entre a residência e o local de trabalho, e também em casos de doenças ocupacionais como LER/DORT, perda auditiva induzida por ruído, problemas respiratórios causados por exposição a agentes químicos, problemas de coluna relacionados ao trabalho, estresse e outras doenças psicológicas decorrentes das condições de trabalho. Realizamos análise detalhada das condições de segurança oferecidas pela empresa, verificando se houve fornecimento adequado de equipamentos de proteção individual, treinamento apropriado, e cumprimento das normas regulamentadoras do Ministério do Trabalho.</p>
+                    <p>É fundamental comprovar o nexo causal entre o acidente ou doença e o trabalho exercido. Para isso, trabalhamos em conjunto com médicos peritos, coletamos documentos como CAT (Comunicação de Acidente de Trabalho), laudos médicos, prontuários, exames admissionais e periódicos, e quaisquer evidências que demonstrem que a lesão ou doença foi causada ou agravada pelas condições de trabalho. Nos casos em que o trabalhador fica com sequelas permanentes que reduzem ou eliminam sua capacidade laborativa, buscamos indenização por danos materiais que inclua pensionamento mensal vitalício calculado sobre a expectativa de vida do trabalhador, além de indenização por danos morais pela dor e sofrimento causados e danos estéticos quando houver deformidades visíveis.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">📊</div>
+                    <h3>Revisão de Contratos</h3>
+                    <p>A revisão de contratos de trabalho é uma medida preventiva fundamental que pode evitar problemas futuros e garantir que os direitos do trabalhador sejam respeitados desde o início da relação de emprego. Muitos contratos contêm cláusulas abusivas, ilegais ou que limitam direitos garantidos pela Consolidação das Leis do Trabalho e pela Constituição Federal. Nosso escritório realiza análise jurídica minuciosa de contratos de trabalho, acordos de compensação de horas, termos de confidencialidade, cláusulas de não concorrência e qualquer outro documento que vincule o trabalhador ao empregador, identificando disposições prejudiciais e orientando sobre os direitos aplicáveis.</p>
+                    <p>Durante a revisão contratual, verificamos aspectos essenciais como a correta descrição da função e salário, jornada de trabalho estabelecida, local de prestação de serviços, possibilidade de transferência, cláusulas sobre horas extras e banco de horas, previsão de comissões e bonificações, período de experiência, condições para rescisão do contrato, e qualquer outro termo que possa impactar os direitos do trabalhador. Também analisamos se o contrato está de acordo com a convenção coletiva da categoria, que muitas vezes estabelece direitos superiores aos previstos na CLT e que devem ser obrigatoriamente observados pelo empregador.</p>
+                    <p>Especial atenção é dada a contratos que preveem formas atípicas de contratação, como contratos intermitentes, parciais, de experiência, temporários, ou que estabelecem o trabalhador como pessoa jurídica quando na realidade existe relação de emprego. Orientamos sobre as consequências jurídicas de cada modalidade contratual e, quando identificamos irregularidades, auxiliamos o trabalhador a tomar as medidas necessárias para regularizar sua situação. A revisão preventiva de contratos é especialmente importante antes da assinatura, momento em que ainda é possível negociar termos mais favoráveis, mas também realizamos análise de contratos já vigentes para identificar violações que possam ser objeto de ação judicial futura.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">👥</div>
+                    <h3>Estabilidade Provisória</h3>
+                    <p>A estabilidade provisória é uma proteção especial concedida pela legislação trabalhista a determinados grupos de trabalhadores que se encontram em situação de maior vulnerabilidade e que não podem ser dispensados arbitrariamente pelo empregador durante certo período. As principais hipóteses de estabilidade provisória incluem a gestante, que possui garantia de emprego desde a confirmação da gravidez até cinco meses após o parto, o trabalhador acidentado que fica afastado pelo INSS por mais de 15 dias e tem estabilidade de 12 meses após o retorno, e o cipeiro, membro eleito da Comissão Interna de Prevenção de Acidentes, que possui estabilidade durante o mandato e até um ano após seu término.</p>
+                    <p>Quando ocorre dispensa irregular durante o período de estabilidade, o trabalhador tem direito à reintegração ao emprego ou, se isso não for mais possível ou desejável, ao pagamento de indenização correspondente aos salários e demais direitos do período de estabilidade. Nosso escritório de <a href="https://advogadoemsaopaulo.alboompro.com/advogado-previdenciario-em-campinas-sp">Advogado Previdenciário em Campinas</a> atua vigorosamente na defesa desses direitos, ingressando com ações judiciais que buscam ou a reintegração imediata do trabalhador ao posto de trabalho com pagamento dos salários do período em que esteve afastado, ou a conversão em indenização quando a reintegração se mostrar inviável. Também defendemos dirigentes sindicais e delegados sindicais que possuem estabilidade durante o mandato e até um ano após, proteção fundamental para garantir a liberdade sindical.</p>
+                    <p>É comum que empregadores desconheçam ou ignorem deliberadamente essas garantias, dispensando trabalhadoras gestantes que ainda não haviam comunicado a gravidez, ou trabalhadores acidentados logo após o retorno ao trabalho. Nesses casos, além da reintegração ou indenização substitutiva, também é possível pleitear indenização por danos morais pela dispensa discriminatória. Orientamos nossos clientes sobre a documentação necessária para comprovar a estabilidade, como exames que confirmem a gravidez anterior à dispensa, CAT e documentos do INSS no caso de acidente, atas de eleição da CIPA ou comprovantes do registro sindical. A jurisprudência trabalhista tem sido cada vez mais protetiva nesses casos, reconhecendo a importância social dessas garantias.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">💼</div>
+                    <h3>Vínculo Empregatício</h3>
+                    <p>O reconhecimento de vínculo empregatício é crucial para trabalhadores que prestam serviços de forma contínua para uma empresa mas não têm sua relação formalizada através de registro na carteira de trabalho. A legislação brasileira estabelece que estão presentes os elementos caracterizadores do vínculo empregatício quando há prestação de serviços de forma não eventual, subordinação às ordens do empregador, onerosidade na prestação dos serviços e pessoalidade na execução das atividades. Quando esses requisitos estão presentes, a relação deve ser reconhecida como de emprego, independentemente da forma como foi rotulada pelas partes.</p>
+                    <p>Casos frequentes que atendemos envolvem a pejotização, prática ilegal na qual a empresa exige que o trabalhador constitua pessoa jurídica para prestar serviços que na realidade configuram relação de emprego, visando burlar direitos trabalhistas e encargos sociais. Também atuamos em casos de trabalhadores contratados como autônomos, cooperados, estagiários ou terceirizados, mas que na prática trabalham com subordinação, horário fixo, recebendo ordens diretas da empresa tomadora de serviços e executando atividades essenciais ao negócio. O reconhecimento do vínculo garante todos os direitos trabalhistas desde o início da prestação de serviços, incluindo anotação da CTPS, recolhimento de FGTS, pagamento de férias, décimo terceiro, horas extras e todas as demais verbas.</p>
+                    <p>Para comprovar a existência de vínculo empregatício, utilizamos diversos meios de prova como depoimento de testemunhas que presenciaram a rotina de trabalho, controle de ponto ou registros de presença, e-mails trocados com superiores hierárquicos, uniformes fornecidos pela empresa, crachás de identificação, subordinação a regras internas, exclusividade ou habitualidade na prestação de serviços para aquela empresa, e qualquer elemento que demonstre que a relação ultrapassava uma mera prestação de serviços autônomos. A jurisprudência tem reconhecido o vínculo empregatício mesmo quando há contrato formal em sentido contrário, aplicando o princípio da primazia da realidade sobre a forma, que é base fundamental do Direito do Trabalho.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">🔄</div>
+                    <h3>Desvio de Função</h3>
+                    <p>O desvio de função ocorre quando o trabalhador é contratado para exercer determinada função mas, no decorrer do contrato, passa a executar atividades diversas daquelas para as quais foi originalmente contratado, especialmente quando essas novas atribuições correspondem a cargo de maior complexidade ou responsabilidade e não há o correspondente aumento salarial. Essa prática é ilegal e gera direito ao trabalhador de receber diferenças salariais correspondentes ao cargo efetivamente exercido, além de reflexos em férias, décimo terceiro, FGTS e demais verbas trabalhistas. Nosso escritório atua na identificação e comprovação de casos de desvio de função, buscando a adequação salarial ou o pagamento retroativo das diferenças devidas.</p>
+                    <p>É comum que trabalhadores sejam contratados para funções operacionais e, demonstrando competência, passem a assumir responsabilidades de coordenação, supervisão ou gerência sem que isso seja oficialmente reconhecido pela empresa através de promoção e aumento salarial correspondente. Outras situações frequentes envolvem auxiliares que passam a exercer funções de técnicos, assistentes que assumem atribuições de analistas, ou trabalhadores que acumulam funções de cargos diferentes sem receber a remuneração adequada. Em todos esses casos, a legislação trabalhista garante o direito ao salário da função efetivamente exercida, aplicando-se o princípio constitucional da isonomia salarial.</p>
+                    <p>Para comprovar o desvio de função, coletamos provas como descrição das atividades realizadas no dia a dia, testemunhas que possam confirmar as funções exercidas, e-mails e documentos que demonstrem as responsabilidades assumidas, comparação com as atribuições de outros funcionários que ocupam oficialmente o cargo para o qual o trabalhador foi desviado, e análise da descrição de cargos constante no contrato de trabalho e no registro da carteira. Também investigamos se existe plano de cargos e salários na empresa e qual a remuneração prevista para o cargo efetivamente exercido. Quando há convenção coletiva aplicável, verificamos os pisos salariais estabelecidos para cada função. O reconhecimento do desvio de função pode resultar em valores significativos de diferenças salariais acumuladas ao longo dos anos.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    <div class="service-icon">📝</div>
+                    <h3>Acordo Trabalhista</h3>
+                    <p>Os acordos trabalhistas são instrumentos importantes para resolução de conflitos entre empregados e empregadores de forma mais rápida e menos desgastante do que um processo judicial completo. Nosso escritório atua tanto na elaboração quanto na homologação de acordos extrajudiciais, sempre garantindo que os direitos fundamentais do trabalhador sejam preservados e que não haja renúncia a direitos indisponíveis. Também atuamos em acordos judiciais realizados durante o processo trabalhista, negociando condições vantajosas para nossos clientes que permitam a resolução célere do litígio com segurança jurídica para ambas as partes.</p>
+                    <p>É fundamental que acordos trabalhistas sejam elaborados com assistência jurídica especializada para evitar cláusulas prejudiciais ao trabalhador ou que possam ser questionadas futuramente. Analisamos cuidadosamente cada termo do acordo, verificando se todos os direitos devidos estão sendo contemplados, se os valores propostos são justos e condizentes com o que seria obtido em eventual processo judicial, se há discriminação adequada das parcelas pagas para fins fiscais e previdenciários, e se constam cláusulas de quitação que não extrapolem os limites legais. Orientamos sobre as consequências jurídicas de cada tipo de acordo e sobre a possibilidade de homologação judicial para conferir maior segurança ao ajuste.</p>
+                    <p>Especial atenção é dada aos acordos que envolvem desligamento do empregado, situação em que é preciso garantir o pagamento correto de todas as verbas rescisórias, possibilidade de saque do FGTS e recebimento do seguro-desemprego quando aplicável. Também atuamos em acordos para regularização de situações irregulares, como formalização de vínculo empregatício não registrado, pagamento parcelado de direitos não quitados durante o contrato, ajustes de jornada de trabalho e remuneração. Sempre que possível, buscamos a homologação do acordo perante a Justiça do Trabalho ou no sindicato da categoria, conferindo maior validade jurídica ao instrumento e evitando questionamentos futuros. Nossa prioridade é garantir que o acordo seja benéfico e traga tranquilidade para o trabalhador.</p>
+                </div>
+
+                <div class="service-card expanded">
+                    
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title">Por Que Nos Escolher?</h2>
+            <p class="section-subtitle">Comprometimento total com seus direitos</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Experiência Comprovada</h3>
+                    <p>Nosso escritório acumula anos de atuação especializada em direito do trabalho na região metropolitana de São Paulo, com histórico de centenas de casos bem-sucedidos em todas as instâncias da Justiça do Trabalho. Conhecemos profundamente os trâmites dos fóruns trabalhistas paulistas e mantemos atualização constante sobre jurisprudência e mudanças legislativas. Nossa expertise abrange desde casos simples até demandas complexas envolvendo grandes empresas. Essa experiência consolidada se traduz em estratégias jurídicas eficientes, maior previsibilidade de resultados e capacidade de antecipar obstáculos processuais. Trabalhamos com comprometimento total para maximizar as chances de êxito em cada processo que patrocinamos, sempre fundamentados em sólido conhecimento técnico e prática forense.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💬</div>
+                    <h3>Atendimento Personalizado</h3>
+                    <p>Entendemos que cada trabalhador tem uma história única e cada caso possui particularidades que merecem atenção individualizada. Por isso, oferecemos atendimento personalizado desde o primeiro contato, dedicando tempo necessário para compreender profundamente sua situação, ouvir suas preocupações e expectativas. Desenvolvemos estratégia jurídica customizada para cada cliente, considerando não apenas os aspectos legais mas também o impacto pessoal e profissional da demanda. Mantemos comunicação próxima e acessível, respondendo dúvidas prontamente e explicando cada etapa processual em linguagem clara. Você não será apenas mais um número em nossa carteira de clientes, mas terá acompanhamento dedicado de advogados que genuinamente se importam com seu caso e trabalham incansavelmente para alcançar o melhor resultado possível.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Agilidade</h3>
+                    <p>Sabemos que questões trabalhistas frequentemente envolvem urgência e impactam diretamente o sustento das famílias. Por isso, priorizamos agilidade em todas as etapas do atendimento. Oferecemos resposta rápida às solicitações, realizamos análise preliminar do caso com brevidade e tomamos providências necessárias sem procrastinação. Nosso sistema de acompanhamento processual permite monitoramento constante dos prazos e movimentações, garantindo que nenhuma oportunidade seja perdida. Mantemos nossos clientes informados sobre cada andamento relevante do processo através de comunicação ágil por telefone, e-mail ou WhatsApp. Utilizamos tecnologia e organização para otimizar o trabalho jurídico, convertendo eficiência em resultados mais rápidos. Agilidade, porém, nunca significa pressa que comprometa a qualidade técnica das peças e estratégias desenvolvidas.</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Transparência</h3>
+                    <p>A relação de confiança entre advogado e cliente é fundamental, e ela se constrói sobre transparência total. Desde a primeira consulta, apresentamos avaliação honesta sobre as chances de êxito do caso, possíveis valores a serem obtidos e riscos envolvidos. Não fazemos promessas irreais apenas para captar clientes. Explicamos claramente nossa forma de cobrança de honorários, seja por hora trabalhada, valor fixo ou percentual sobre o êxito, garantindo que não haja surpresas financeiras. Durante todo o processo, mantemos comunicação transparente sobre cada decisão estratégica, compartilhando documentos processuais e esclarecendo o significado de cada movimentação. Se surgir alguma dificuldade ou necessidade de mudança na estratégia, informamos imediatamente. Nosso compromisso é com a verdade e clareza em todas as orientações jurídicas fornecidas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Entre em Contato</h2>
+            <p class="section-subtitle" style="color: var(--secondary);">Não deixe que a injustiça do trabalho passe impune — entre em contato e receba orientação jurídica imediata de um especialista.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>(11) 9 7559-6711</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>advogadotrabalhistabr1@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>São Paulo - SP</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="https://api.whatsapp.com/send/?phone=5511975596711&text=Ol%C3%A1%2C+gostaria+de+fazer+uma+avalia%C3%A7%C3%A3o+trabalhista+gratuita.&type=phone_number&app_absent=0" class="cta-button" target="_blank" rel="noopener noreferrer">Agendar Consulta</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>2025 Advocacia Trabalhista SP.</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">Atuação em toda região metropolitana de São Paulo</p>
+        </div>
+    </footer>
+</body>
+</html>
